@@ -4,6 +4,10 @@ import SetAvatar from "./components/SetAvatar";
 import Chat from "./pages/Chat";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import "./assets/css/dashboard/responsive.css";
+import "./assets/css/dashboard/ui.css";
+// import "./assets/css/fontawesome/all.min.css";
 export default function App() {
   return (
     <BrowserRouter>
@@ -12,6 +16,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/setAvatar" element={<SetAvatar />} />
         <Route path="/" element={<Chat />} />
+        <Route path="/dash" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
