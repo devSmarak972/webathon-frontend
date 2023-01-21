@@ -15,14 +15,14 @@ const Team = () => {
                     <div className="row mb-4">
                         <div className="col">
                             <div className="form-outline">
-                            <label className="form-label" for="form6Example1">Competition name</label>
+                                <label className="form-label" for="form6Example1">Competition name</label>
                                 <input type="text" id="form6Example1" className="form-control" placeholder="Competition name" />
                                 {/* <label className="form-label" for="form6Example1">First name</label> */}
                             </div>
                         </div>
                         <div className="col">
                             <div className="form-outline">
-                            <label className="form-label" for="form6Example2">Opportunity type</label>
+                                <label className="form-label" for="form6Example2">Opportunity type</label>
                                 <input type="text" id="form6Example2" className="form-control" placeholder="Opporunity type" />
                                 {/* <label className="form-label" for="form6Example2">Last name</label> */}
                             </div>
@@ -31,7 +31,7 @@ const Team = () => {
 
                     {/* <!-- Text input --> */}
                     <div className="form-outline mb-4">
-                    <label className="form-label" for="form6Example3">Organisation name</label>
+                        <label className="form-label" for="form6Example3">Organisation name</label>
                         <input type="text" id="form6Example3" className="form-control" placeholder="Organisation name" />
                         {/* <label className="form-label" for="form6Example3">Team name</label> */}
                     </div>
@@ -44,27 +44,45 @@ const Team = () => {
 
                     {/* <!-- Email input --> */}
                     <div className="form-outline mb-4">
-                    <label className="form-label" for="form6Example5">Website URL</label>
+                        <label className="form-label" for="form6Example5">Website URL</label>
                         <input type="email" id="form6Example5" className="form-control" placeholder="Website URL" />
                         {/* <label className="form-label" for="form6Example5">Email</label> */}
                     </div>
 
                     {/* <!-- Number input --> */}
                     <div className="form-outline mb-4">
-                    <label className="form-label" for="form6Example6">Number of team members</label>
-                        <input type="number" id="form6Example6" className="form-control" placeholder="Number of team members" />
+                            <label>Select the number of team members</label><br />
+                            <input type="radio" name="team"/>
+                            <label className="form-label" for="form6Example6" style={{"margin-right":"20px"}}>1</label>
+                            <input type="radio" name="team"/>
+                            <label className="form-label" for="form6Example6" style={{"margin-right":"20px"}}>2</label>
+                            <input type="radio" name="team"/>
+                            <label className="form-label" for="form6Example6" style={{"margin-right":"20px"}}>3</label>
+                            <input type="radio" name="team"/>
+                            <label className="form-label" for="form6Example6" style={{"margin-right":"20px"}}>3+</label>
+                        {/* <input type="radio" /> */}
                         {/* <label className="form-label" for="form6Example6">Number of team members</label> */}
                     </div>
 
                     <div className="form-outline mb-4">
-                    <label className="form-label" for="form6Example6">Logo</label>
+                        <label className="form-label" for="form6Example6" style={{"margin-right":"20px"}}>Mode of competition </label>
+                        {/* <input type="file" id="form6Example6" className="form-control" /> */}
+                        <select name="" id="" className="form-control">
+                            <option value="Offline">Offline</option>
+                            <option value="Online">Online</option>
+                        </select>
+                        {/* <label className="form-label" for="form6Example6">Number of team members</label> */}
+                    </div>
+
+                    <div className="form-outline mb-4">
+                        <label className="form-label" for="form6Example6">Logo</label>
                         <input type="file" id="form6Example6" className="form-control" />
                         {/* <label className="form-label" for="form6Example6">Number of team members</label> */}
                     </div>
 
                     {/* <!-- Message input --> */}
                     <div className="form-outline mb-4">
-                    <label className="form-label" for="form6Example7">Additional information</label>
+                        <label className="form-label" for="form6Example7">Additional information</label>
                         <textarea className="form-control" id="form6Example7" rows="4" placeholder="Additional information"></textarea>
                         {/* <label className="form-label" for="form6Example7">Additional information</label> */}
                     </div>

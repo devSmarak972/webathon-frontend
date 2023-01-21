@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SetAvatar from "./components/SetAvatar";
 import Loginn from "./components/Loginn";
 import Team from "./components/Team";
+// import Home from "./components/Home";
 import Chat from "./pages/Chat";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -14,21 +15,17 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-<<<<<<< Updated upstream
+        {/* <Route path="/newdash" exact element={<Home />}/> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/setAvatar" element={<SetAvatar />} />
         <Route path="/" element={<Chat />} />
         <Route path="/dash" element={<Dashboard />} />
         {/* <Route path="loginnew" element={<Loginn />} /> */}
-=======
-        <Route path="/register" exact element={<Register />} />
-        <Route path="/login" exact element={<Login />} />
-        <Route path="/setAvatar" exact element={<SetAvatar />} />
         <Route path="/" exact element={<Chat />} />
-        <Route path="loginnew" exact element={<Loginn />} />
-        <Route path="team" exact element={<Team />} />
->>>>>>> Stashed changes
+        <Route path="/loginnew" exact element={<Loginn />} />
+        <Route path="/team" exact element={<Team />} />
+        {/* <Route path="/newdash" exact element={<Home />}/> */}
       </Routes>
     </BrowserRouter>
   );

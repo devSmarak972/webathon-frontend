@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< Updated upstream
-// import "./style.css";
-=======
 import "./loginn.css";
->>>>>>> Stashed changes
 import register from "./img/register.svg";
 import logo from "./img/log.svg";
 
@@ -91,12 +87,11 @@ const Loginn = () => {
                 <div className="panels-container">
                     <div className="panel left-panel">
                         <div className="content">
-                            <h3>New here ?</h3>
+                            <h3>Register Here</h3>
                             <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-                                ex ratione. Aliquid!
+                                Click the button below to register.
                             </p>
-                            <button className="btn transparent" id="sign-up-btn" onClick={()=>{container.classList.add("sign-up-mode");}}>
+                            <button className="btn transparent" id="sign-up-btn" onClick={HandleClick}>
                                 Sign up
                             </button>
                         </div>
@@ -104,12 +99,12 @@ const Loginn = () => {
                     </div>
                     <div className="panel right-panel">
                         <div className="content">
-                            <h3>One of us ?</h3>
+                            <h3>Login Here</h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
                                 laboriosam ad deleniti.
                             </p>
-                            <button className="btn transparent" id="sign-in-btn" onClick={()=>{container.classList.remove("sign-up-mode");}}>
+                            <button className="btn transparent" id="sign-in-btn" onClick={HandleClick2}>
                                 Sign in
                             </button>
                         </div>
