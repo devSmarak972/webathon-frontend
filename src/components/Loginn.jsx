@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< Updated upstream
 // import "./style.css";
+=======
+import "./loginn.css";
+>>>>>>> Stashed changes
 import register from "./img/register.svg";
 import logo from "./img/log.svg";
 
@@ -20,7 +24,7 @@ const Loginn = () => {
     }
     return (
         <>
-            <div className="container">
+            <div className="container new">
                 <div className="forms-container">
                     <div className="signin-signup">
                         <form action="#" className="sign-in-form">
