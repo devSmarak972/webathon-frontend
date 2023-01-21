@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Article from './Article'
 const Filterbar = () => {
-    var categorylist=[{category:"Maths",num:120},{category:"Maths",num:120},{category:"Maths",num:120},{category:"Maths",num:120}];
+    var categorylist=[{category:"Maths",num:120},{category:"Physics",num:120},{category:"Data Analytics",num:120},{category:"Web Development",num:120}];
 const [Status, setStatus] = useState([true,false,false,false]);
 
 const [Team, setTeam] = useState([true,false,false,false]);
@@ -124,7 +124,19 @@ const statusChange=(event)=>{
           <label className="form-check mb-2">
             <input className="form-check-input" type="checkbox" id={el.category} value="" checked={Category.has(el.category)?true:false} onChange={toggleCategory}/>
             <span className="form-check-label"> {el.category} </span>
-            <b className="badge rounded-pill bg-gray-dark float-end">{el.num}</b>
+            <span className="badge rounded-pill bg-gray-dark float-end" style={{
+    display: "inline-block",
+    padding: ".32em .7em",
+    fontSize: "0.83em",
+    fontWeight: "400",
+    lineHeight: ".9",
+    color: "#fff",
+    textAlign: "center",
+    whiteSpace: "nowrap",
+    verticalAlign: "baseline",
+ backgroundColor:"#9da1a7"
+ 
+}}>{el.num}</span>
           </label>
             )
           })
