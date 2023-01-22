@@ -13,7 +13,7 @@ const StatisticsYearChart = () => {
                                             <div className="row align-items-center justify-content-center">
                                                 <div className="col">
                                                     <h4 className="m-0">Upcoming Event</h4>
-                                                    <h5 className='m-0 my-2'>Competition Title</h5>
+                                                    <h5 className='m-0 my-2'>Fortnight</h5>
 
                                                 </div>
                                                 <div className="col-auto">
