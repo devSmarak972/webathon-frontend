@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import "./assets/css/dashboard/responsive.css";
 import "./assets/css/dashboard/ui.css";
+
 // import "./assets/css/fontawesome/all.min.css";
 export default function App() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "./loginn.css";
+// import "./loginn.css";
 import register from "./img/register.svg";
 import logo from "./img/log.svg";
 
