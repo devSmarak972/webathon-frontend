@@ -56,10 +56,10 @@ const MouseOut=(e)=>{
         </div>
         <div class="order-lg-last col-lg-5 col-sm-8 col-8">
           <div class="float-end">
-            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-light"> 
+            <a href="/userdash" class="btn btn-light"> 
                 <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">My Profile  </span> 
             </a>
-            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-light"> 
+            <a href="#" class="btn btn-light"> 
               <i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Bookmarks</span>   
             </a>
 

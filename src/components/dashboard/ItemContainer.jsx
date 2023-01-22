@@ -5,8 +5,8 @@ const ItemContainer = ({complist}) => {
   const [message, setMessage] = useState("")
 
  const handleapply=async (event)=>{
-  var uid=JSON.parse(localStorage.getItem("data"))._id;
-  console.log(uid,localStorage.getItem("data"));
+  var uid=JSON.parse(localStorage.getItem("data")).user._id;
+  console.log(uid,JSON.parse(localStorage.getItem("data")),localStorage.getItem("data"));
   // var compid=event.target.id;
 
   const { data } = await axios.post('http://localhost:3422/api/comp/apply', {

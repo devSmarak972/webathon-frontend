@@ -111,8 +111,8 @@ var orglist=new Set(Data.map(el=>{
     <>
     <Navbar classes={["complist"]} options={options} data={Data}></Navbar>
       <section className="bg-primary py-5">
-        <div className="container">
-          <h2 className="text-white">Competitions</h2>
+        <div className="container" style={{textAlign:'center'}}>
+          <h1 className="text-white">Competitions</h1>
         </div>
       </section>
       <section className="padding-y">

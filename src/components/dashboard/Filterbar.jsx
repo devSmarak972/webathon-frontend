@@ -104,7 +104,7 @@ const Filterbar = ({ filterHandler }) => {
                   type="checkbox"
                   id="All"
                   index="0"
-                  checked={Status[0]}
+                  checked={Status[3]}
                   onChange={statusChange}
                 />
                 <span className="btn btn-light"> All </span>
