@@ -4,18 +4,18 @@
     background-image: none !important;
 } */
 
-.row{
+.team .row{
     width: 100%;
 }
 
-.form-outline{
+/* .team .form-outline{
     width: 100%;
-}
+} */
 
-.container{
+.team.container{
     margin: 30px;
 }
 
-form{
+.team form{
     margin: 30px !important;
 }

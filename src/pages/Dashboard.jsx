@@ -5,7 +5,22 @@ import Navbar from "../components/Navbar";
 
 
 const Dashboard = () => {
- 
+  useEffect(() => {
+   
+    axios.get('http://localhost:3422/api/comp/fetchallcomp', {
+      
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    .then(function (response) {
+      console.log(response.data);
+   
+
+      setData(response.data);
+      
+    })
+  }, [])
   
   var complist = [
     {
@@ -15,7 +30,7 @@ const Dashboard = () => {
       title: "MindFest Cura 22",
       applied: "46",
       timeleft: "17",
-      deadline: "23/01/2023",
+      regDeadline: "23/01/2023",
       incentive: "₹ 20000",
       teamsize: 4,
       orgName:"Indian Institute of Technology Kharagpur",
@@ -30,7 +45,7 @@ const Dashboard = () => {
       title: "MindFest Cura 23",
       applied: "46",
       timeleft: "17",
-      deadline: "30/01/2023",
+      regDeadline: "30/01/2023",
       incentive: "20000",
       teamsize: 5,
       orgName:"Indian Institute of Technology Kharagpur",
@@ -47,7 +62,7 @@ const Dashboard = () => {
       timeleft: "17",
       incentive: "20000",
       teamsize: 4,
-      deadline: "30/01/2023",
+      regDeadline: "30/01/2023",
       orgName:"Indian Institute of Technology Kharagpur",
       user:"Smarak Kanjilal",
 
