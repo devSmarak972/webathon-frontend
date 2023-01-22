@@ -4,7 +4,7 @@ import "./Rules.css";
 const Rules = () => {
   return (
     <div className="rules" id="rules">
-      <h1>Rules and Guidelines</h1>
+      <h1 className="text-center">Rules and Guidelines</h1>
       <p>
         <b>
           I. Arguments with Moderators

@@ -1,7 +1,12 @@
 import React from "react";
 import CountUp from "react-countup";
 
-const About = () => {
+const About = ({event} )=> {
+  var date=new Date(event.regDeadline);
+  console.log(date);
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
   return (
     <section id="about" className="upcoming-section pt-150">
       <div className="container">
@@ -22,13 +27,13 @@ const About = () => {
               <h4 id="secondo1" className="countup" style={{color:"white"}}>
                 <CountUp
                   start={0}
-                  end={12}
+                  end={date.getDay()}
                   duration={2}
                   separator=" "
                   decimals={0}
                   delay={0}
                   enableScrollSpy={true}
-                  suffix={" th Feb"}
+                  suffix={" th "+monthNames[date.getMonth()]}
                 ></CountUp>
               </h4>
               <span>Deadline</span>
@@ -53,7 +58,7 @@ const About = () => {
                 ></CountUp>
                 <CountUp
                   start={0}
-                  end={5}
+                  end={event}
                   duration={2}
                   separator=" "
                   decimals={0}
@@ -73,7 +78,7 @@ const About = () => {
               <h4 id="secondo3" className="countup" style={{color:"white"}}>
                 <CountUp
                   start={0}
-                  end={40000}
+                  end={event.prize?event.prize:0}
                   duration={2}
                   separator=" "
                   decimals={0}

@@ -7,31 +7,33 @@ import Timeline from "../components/timeline/Timeline";
 import Footer from "../components/footer/Footer";
 import Rules from "../components/rules_eligibility/Rules";
 import "../components/assets/css/main.css";
+import "../components/assets/css/style.css";
+// import "../components/assets/css/tiny-slider.css";
 const Events = () => {
-    var currevent=localStorage.getItem("currevent");
+    var currevent=JSON.parse(localStorage.getItem("currevent"));
     console.log(currevent);
   return (
     <>
       {/* <Preloader /> */}
       {/* <Sidebar /> */}
-      <Header />
-      <Slider />
-      <About />
+      <Header event={currevent}/>
+      <Slider event={currevent}/>
+      <About event={currevent}/>
       <br />
       <br />
       <br />
       <br />
-      <Timeline />
+      <Timeline event={currevent}/>
       <br />
       <br />
       <br />
       <br />
-      <Rules />
+      <Rules event={currevent}/>
       <br />
       <br />
       <br />
       <br />
-      <Footer />
+      <Footer event={currevent} />
     </>
   )
 }
