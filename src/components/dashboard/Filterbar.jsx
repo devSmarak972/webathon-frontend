@@ -1,25 +1,45 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Article from "./Article";
 
-const Filterbar = ({complist}) => {
-
-  const filterData=(data)=>{
-       
-  }
+const Filterbar = ({ filterHandler }) => {
   var categorylist = [
     { category: "Maths", num: 110 },
     { category: "Physics", num: 105 },
     { category: "Data Analytics", num: 20 },
     { category: "Web Development", num: 220 },
   ];
-  var domainlist=[
-    "All","Engineering","Arts","Finance"
-  ]
+  var statuslist=["All","Live","Closed",""];
+  
+  var domainlist = ["All", "Engineering", "Arts", "Finance"];
   const [Status, setStatus] = useState([true, false, false, false]);
-
+  
   const [Team, setTeam] = useState([true, false, false, false]);
   const [Category, setCategory] = useState(new Set());
   const [Domain, setDomain] = useState(0);
+  const [filters, setFilters] = useState({
+    domain: "Finance",
+    status: "Live",
+    teamsize: 3,
+    category: [],
+  });
+  useEffect(()=>{
+    
+    var tempfilter = {
+      domain: domainlist[Domain],
+      status: statuslist[Status.findIndex((el) => el === true)],
+      teamsize: Team.findIndex((el) => el === true),
+      category: [...Category],
+    };
+    setFilters(st=>{
+      return tempfilter;
+    })
+  },[Team,Category,Domain,Status])
+  useEffect(() => {
+    
+    filterHandler(filters);
+  }, [filters]);
+
   console.log(Domain);
   const toggleCategory = (event) => {
     setCategory((st) => {
@@ -47,10 +67,10 @@ const Filterbar = ({complist}) => {
     });
   };
   const domainChange = (event) => {
-    console.log("domain change",event.target.id);
-    var name=event.target.id;
+    console.log("domain change", event.target.id);
+    var name = event.target.id;
     setDomain((st) => {
-     return parseInt(name.charAt(name.length-1));
+      return parseInt(name.charAt(name.length - 1));
     });
   };
 
@@ -199,38 +219,35 @@ const Filterbar = ({complist}) => {
           </header>
           <div className="collapse show" id="collapse_aside3">
             <div className="card-body">
-              {
-                domainlist.map((el,index)=>{
-                  // console.log(index,"ind");
-return (
-  <div class="form-check">
-    {el == domainlist[Domain] ? (
-      <input
-        class="form-check-input"
-        type="radio"
-        name="flexRadio"
-        id={"radio_" + index}
-        checked
-        onChange={domainChange}
-      />
-    ) : (
-      <input
-        class="form-check-input"
-        type="radio"
-        name="flexRadio"
-        id={"radio_" + index}
-        onChange={domainChange}
-      />
-    )}
+              {domainlist.map((el, index) => {
+                // console.log(index,"ind");
+                return (
+                  <div class="form-check">
+                    {el == domainlist[Domain] ? (
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadio"
+                        id={"radio_" + index}
+                        checked
+                        onChange={domainChange}
+                      />
+                    ) : (
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="flexRadio"
+                        id={"radio_" + index}
+                        onChange={domainChange}
+                      />
+                    )}
 
-    <label class="form-check-label" htmlFor={"radio_" + index}>
-      {el}
-    </label>
-  </div>
-);
-                })
-              
-              }
+                    <label class="form-check-label" htmlFor={"radio_" + index}>
+                      {el}
+                    </label>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
