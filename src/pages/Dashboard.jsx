@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Filterbar from "../components/dashboard/Filterbar";
 import ItemContainer from "../components/dashboard/ItemContainer";
+import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
   var complist = [
@@ -42,7 +43,9 @@ const Dashboard = () => {
       desc: "Short description about the product goes here, for ex it features. Lorem ipsum dolor sit amet with hapti you enter into any new area of science, you almost lorem ipsum is great text consectetur adipisicing",
     },
   ];
+
   const checkTeamSize = (filtersize, size) => {
+    console.log(filtersize,size);
     if (filtersize === 3 && size >= 4) return true;
     else if (filtersize === size - 1) return true;
     else return false;
@@ -57,9 +60,11 @@ const Dashboard = () => {
   const filterData = (filters) => {
     console.log(filters,"filters");
     var filteredData = complist.filter((el) => {
+
       // status domain category teamsize
+      console.log((filters.domain==="All" || el.domain === filters.domain),(filters.status==="All"||el.status === filters.status),checkTeamSize(filters.teamsize, el.teamsize),checkCategory(filters.category, el.category))
       if (
-        (filters.Domain==="All" || el.Domain === filters.Domain) &&
+        (filters.domain==="All" || el.domain === filters.domain) &&
         (filters.status==="All"||el.status === filters.status) &&
         checkTeamSize(filters.teamsize, el.teamsize) &&
         checkCategory(filters.category, el.category)
@@ -73,6 +78,7 @@ const Dashboard = () => {
   };
   return (
     <>
+    <Navbar></Navbar>
       <section className="bg-primary py-5">
         <div className="container">
           <h2 className="text-white">Competitions</h2>

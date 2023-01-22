@@ -105,18 +105,13 @@ const ItemContainer = ({complist}) => {
         <hr />
 
         <footer className="d-flex mt-4">
-          <div>
-            <a href="javascript: history.back()" className="btn btn-light">
-              {" "}
-              « Go back
-            </a>
-          </div>
+ 
           <nav className="ms-3">
             <ul className="pagination">
-              <li className="page-item">
+              <li className="page-item" >
                 <a
                   className="page-link"
-                  href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#"
+                  href=" "
                 >
                   1
                 </a>
