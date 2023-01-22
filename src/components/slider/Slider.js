@@ -1,16 +1,16 @@
 import React from "react";
 
-const Slider = () => {
+const Slider = ({event}) => {
   return (
     <section id="home" className="hero-area img-bg">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6">
             <div className="hero-content">
-              <h1>Event Name</h1>
-              <p>Event Description</p>
-              <a href="javascript:void(0)" className="main-btn btn-hover">
-                Join Now
+              <h1>{event.title}</h1>
+              <p>{event.desc}</p>
+              <a href=" " className="main-btn btn-hover">
+                Apply
               </a>
             </div>
           </div>

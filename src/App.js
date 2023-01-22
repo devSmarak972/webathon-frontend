@@ -29,7 +29,7 @@ export default function App() {
         <Route path="/loginnew" exact element={<Loginn />} />
         <Route path="/team" exact element={<Team />} />
         <Route path="/userDash" exact element={<UserDashboard />} />
-        <Route path="/events" exact element={<Events/>} />
+        <Route path="/events/:id" exact element={<Events/>} />
         {/* <Route path="/newdash" exact element={<Home />}/> */}
       </Routes>
     </BrowserRouter>
