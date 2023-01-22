@@ -7,15 +7,18 @@ import axios from 'axios';
 const Dashboard = () => {
   useEffect(() => {
    
-    axios.get('/api/auth/fetchallcomp', {
+    axios.get('http://localhost:3422/api/comp/fetchallcomp', {
       
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNjYzcwNDM4YzRjMzkwMWNlYTg5MjQwIn0sImlhdCI6MTY3NDM3MTE1OH0.7mVT738wzeXGqSmR6x4xCGrfy4JErT8g4yiBK_B8p8E'
       },
     })
     .then(function (response) {
-      console.log(response);
+      console.log(response.data);
+   
+
+      setData(response.data);
+      
     })
   }, [])
   
@@ -27,7 +30,7 @@ const Dashboard = () => {
       title: "MindFest Cura 22",
       applied: "46",
       timeleft: "17",
-      deadline: "23/01/2023",
+      regDeadline: "23/01/2023",
       incentive: "₹ 20000",
       teamsize: 4,
       orgName:"Indian Institute of Technology Kharagpur",
@@ -42,7 +45,7 @@ const Dashboard = () => {
       title: "MindFest Cura 23",
       applied: "46",
       timeleft: "17",
-      deadline: "30/01/2023",
+      regDeadline: "30/01/2023",
       incentive: "20000",
       teamsize: 5,
       orgName:"Indian Institute of Technology Kharagpur",
@@ -59,7 +62,7 @@ const Dashboard = () => {
       timeleft: "17",
       incentive: "20000",
       teamsize: 4,
-      deadline: "30/01/2023",
+      regDeadline: "30/01/2023",
       orgName:"Indian Institute of Technology Kharagpur",
       user:"Smarak Kanjilal",
 

@@ -12,7 +12,7 @@ const Navbar = ({classes,options,data}) => {
       var selectby=document.getElementById("select-"+classes[0]).value;
       console.log(selectby);
       var filterSearch=data.filter(el=>{
-        if(selectby==="Users" && el.user.includes(event.target.value)) return true;
+        if(selectby==="Users" && el.user.name.includes(event.target.value)) return true;
         else if(selectby==="Competitions" && el.title.includes(event.target.value))return true;
         else if(selectby==="Organisations" && el.orgName.includes(event.target.value) )
         return true;
@@ -34,7 +34,7 @@ const Navbar = ({classes,options,data}) => {
 
 
   }
-const Navbar = () => {
+
 const MouseOver=(e)=>{
   e.target.style.background = '#0d6efd';
 }
@@ -63,7 +63,7 @@ const MouseOut=(e)=>{
               <i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Bookmarks</span>   
             </a>
 
-            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-light ms-5" style={{backgroundColor: " #0d85fd  ",border:'1px', color:'white'}} > 
+            <a href="/team" class="btn btn-light ms-5" style={{backgroundColor: " #0d85fd  ",border:'1px', color:'white'}} > 
               <i class="fa fa-trophy" style={{color: '#FFD700'}}></i>  <span class=" ms-1 d-none d-sm-inline-block">Post Competions</span>   
             </a>
 
@@ -94,7 +94,7 @@ filteredSearch.map(el=>{
 
   if(selectby==="Users")return <li class="result-entry" data-suggestion="Target 1" data-position="1" data-type="type" data-analytics-type="merchant">
   <a href=" " class="result-link">
-    {el.user}
+    {el.user.name}
   </a>
   <p>{el.title}</p>
 </li>
@@ -130,6 +130,4 @@ filteredSearch.map(el=>{
 }
 
 export default Navbar
-
-
 

@@ -25,7 +25,7 @@ export default function Register() {
 
   useEffect(() => {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-      navigate("/");
+      navigate("/dash");
     }
   }, []);
 
@@ -70,16 +70,21 @@ export default function Register() {
         email,
         password,
       });
+      console.log(data);
 
       if (data.status === false) {
         toast.error(data.msg, toastOptions);
       }
       if (data.status === true) {
         localStorage.setItem(
-          process.env.REACT_APP_LOCALHOST_KEY,
-          JSON.stringify(data.user)
+          'authToken',
+          JSON.stringify(data.authToken)
         );
-        navigate("/");
+        localStorage.setItem(
+          'data',
+          JSON.stringify(data)
+        );
+        navigate("/dash");
       }
     }
   };
@@ -90,7 +95,7 @@ export default function Register() {
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>Chat App</h1>
+            <h1>Team Up</h1>
           </div>
           <input
             type="text"

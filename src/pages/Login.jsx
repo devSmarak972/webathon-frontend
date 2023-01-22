@@ -9,7 +9,7 @@ import { loginRoute } from "../utils/APIRoutes";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [values, setValues] = useState({ username: "", password: "" });
+  const [values, setValues] = useState({ email: "", password: "" });
   const toastOptions = {
     position: "bottom-right",
     autoClose: 8000,
@@ -18,8 +18,8 @@ export default function Login() {
     theme: "dark",
   };
   useEffect(() => {
-    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-      navigate("/");
+    if (localStorage.getItem("data")) {
+      navigate("/dash");
     }
   }, []);
 
@@ -28,8 +28,8 @@ export default function Login() {
   };
 
   const validateForm = () => {
-    const { username, password } = values;
-    if (username === "") {
+    const { email, password } = values;
+    if (email === "") {
       toast.error("Email and Password is required.", toastOptions);
       return false;
     } else if (password === "") {
@@ -42,21 +42,22 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
-      const { username, password } = values;
+      const { email, password } = values;
       const { data } = await axios.post(loginRoute, {
-        username,
+        email,
         password,
       });
-      if (data.status === false) {
+console.log(data);
+     if (data.success === false) {
         toast.error(data.msg, toastOptions);
       }
-      if (data.status === true) {
+      if (data.success === true) {
         localStorage.setItem(
-          process.env.REACT_APP_LOCALHOST_KEY,
+          "data",
           JSON.stringify(data.user)
         );
-
-        navigate("/");
+   console.log("navigating")
+        navigate("/dash");
       }
     }
   };
@@ -67,12 +68,12 @@ export default function Login() {
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
             <img src={Logo} alt="logo" />
-            <h1>Chat App</h1>
+            <h1>Team Up</h1>
           </div>
           <input
             type="text"
-            placeholder="Username"
-            name="username"
+            placeholder="email"
+            name="email"
             onChange={(e) => handleChange(e)}
             min="3"
           />

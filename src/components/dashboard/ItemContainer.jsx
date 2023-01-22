@@ -31,7 +31,7 @@ const ItemContainer = ({complist}) => {
               <div className="row g-0">
                 <div className="col-xl-3 col-md-4">
                   <a href=" " className="img-wrap">
-                    <img src="../../assets/images/8.webp" alt="" />{" "}
+                    <img src={el.img} alt="" />{" "}
                   </a>
                 </div>
                 <div className="col-xl-6 col-md-5 col-sm-7">
@@ -42,28 +42,14 @@ const ItemContainer = ({complist}) => {
                     <span href=" " class="org" style={{color:"gray",fontSize:"0.9em"}} >{el.orgName?el.orgName:""}</span>
 
                     <div className="rating-wrap mb-2">
-                      <ul className="rating-stars">
-                        <li className="stars-active" style={{ width: "90%" }}>
-                          <img
-                            src="../../assets/images/stars-active.svg"
-                            alt=""
-                          />
-                        </li>
-                        <li>
-                          {" "}
-                          <img
-                            src="../../assets/images/starts-disable.svg"
-                            alt=""
-                          />{" "}
-                        </li>
-                      </ul>
+                     
                       <span className="label-rating text-warning">
-                        <i className="fa-regular fa-clock"></i> {el.timeleft} days
+                        <i className="fa-regular fa-clock"></i> {Math.floor(Math.random() * 11)+1} days
                         left
                       </span>
                       <i className="dot"></i>
                       <span className="label-rating text-muted">
-                        {el.applied} applied
+                        {Math.floor(Math.random() * 11)+2} applied
                       </span>
                     </div>
                     <p className="descText"> {el.desc}</p>
@@ -78,7 +64,7 @@ const ItemContainer = ({complist}) => {
                           className="fa-solid fa-medal"
                           style={{ padding: "5px" }}
                         ></i>
-                        {el.incentive}
+                        {el.rewards}
                       </span>
                     </div>
                     <p className="text-success">
