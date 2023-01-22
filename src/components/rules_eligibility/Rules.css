@@ -1,0 +1,34 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+
+.rules p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  max-height: 1200px;
+  opacity: 1;
+  margin-top: 14px;
+  z-index: 2;
+  text-align: left;
+  padding: 50px 200px;
+}
+
+.rules ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rules ul li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 4px;
+  padding-top: 18px;
+  border-top: 1px solid #cf4f4f;
+}
+
+.rules b {
+  font-size: 20px;
+}

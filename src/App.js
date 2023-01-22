@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import UserDashboard from "./pages/UserDashboard"
-
+import Events from "./pages/events";
 import "./assets/css/dashboard/responsive.css";
 import "./assets/css/dashboard/ui.css";
 
@@ -29,6 +29,7 @@ export default function App() {
         <Route path="/loginnew" exact element={<Loginn />} />
         <Route path="/team" exact element={<Team />} />
         <Route path="/userDash" exact element={<UserDashboard />} />
+        <Route path="/events" exact element={<Events/>} />
         {/* <Route path="/newdash" exact element={<Home />}/> */}
       </Routes>
     </BrowserRouter>

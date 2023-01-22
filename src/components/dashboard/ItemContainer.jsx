@@ -11,6 +11,9 @@ const ItemContainer = ({complist}) => {
   });
   console.log(data);
  }
+ const setevent=(event)=>{
+  localStorage.setItem("currevent",complist[parseInt(event.target.id[6])])
+ }
   return (
     <>
       <link
@@ -33,7 +36,7 @@ const ItemContainer = ({complist}) => {
             </select>
           </div>
         </header>
-        {complist.length>0?complist.map((el) => {
+        {complist.length>0?complist.map((el,index) => {
         
           return (
             <div className="card card-product-list" key={el.title}>
@@ -45,7 +48,7 @@ const ItemContainer = ({complist}) => {
                 </div>
                 <div className="col-xl-6 col-md-5 col-sm-7">
                   <div className="card-body">
-                    <a href=" " className="title h5">
+                    <a href={"/events/"+el._id} className="title h5" id={"title_"+{index}} onclick={setevent}>
                       {el.title}{" "}
                     </a>
                     <span href=" " class="org" style={{color:"gray",fontSize:"0.9em"}} >{el.orgName?el.orgName:""}</span>
