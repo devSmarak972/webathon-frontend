@@ -1,29 +1,16 @@
-import React,{useState} from "react";
+import React from "react";
 import axios from "axios";
 const ItemContainer = ({complist}) => {
-  const [apply, setApply] = useState("")
-  const [message, setMessage] = useState("")
-
  const handleapply=async (event)=>{
   var uid=JSON.parse(localStorage.getItem("data"))._id;
   console.log(uid,localStorage.getItem("data"));
-  // var compid=event.target.id;
-
+  var compid=event.target.id;
   const { data } = await axios.post('http://localhost:3422/api/comp/apply', {
     uid:uid,
-    compid:apply,
-    message:message,
+    compid:compid,
   });
   console.log(data);
-  setApply("");
-  setMessage("");
  }
-const handlemodal=(event)=>{
-setApply(event.target.id);
-}
-const handlemessage=(event)=>{
-setMessage(event.target.value);
-}
   return (
     <>
       <link
@@ -95,10 +82,10 @@ setMessage(event.target.value);
                     </p>
                     <br />
                     <div className="mb-3">
-                      <button id={el._id} type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handlemodal}>
+                      <a href=" " className="btn btn-primary" id={el._id} onClick={handleapply}>
                         {" "}
                         Apply{" "}
-                      </button>
+                      </a>
                       <a href=" " className="btn btn-light btn-icon">
                         {" "}
                         <i className="fa fa-heart"></i>{" "}
@@ -113,33 +100,6 @@ setMessage(event.target.value);
         }
 
         <hr />
-       <div className="modal">
-        <div className="text-center">
-          <input type="textarea" placeholder="Enter your message"></input>
-          
-        </div>
-        
-       </div>
-
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enter a message</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <input type="text" onChange={handlemessage}></input>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onClick={handleapply}>Apply</button>
-      </div>
-    </div>
-  </div>
-</div>
 
         <footer className="d-flex mt-4">
  
