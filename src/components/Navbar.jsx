@@ -1,6 +1,39 @@
 import React from 'react'
+import { useState } from 'react'
+import "./navsearch.css";
+const Navbar = ({classes,options,data}) => {
+ document.body.addEventListener("click", function(){
+  document.querySelector(".instant-results").style.display="none";}
+  )
+  const [filteredSearch, setFilteredItems] = useState([])
+  // console.log(classes,data,options)
+  const handleSearch=(event)=>{
+      // console.log(event.target.value);
+      var selectby=document.getElementById("select-"+classes[0]).value;
+      console.log(selectby);
+      var filterSearch=data.filter(el=>{
+        if(selectby==="Users" && el.user.includes(event.target.value)) return true;
+        else if(selectby==="Competitions" && el.title.includes(event.target.value))return true;
+        else if(selectby==="Organisations" && el.orgName.includes(event.target.value) )
+        return true;
+        else return false;
+      });
+      console.log(filterSearch);
+      setFilteredItems((st)=>{
 
-const Navbar = () => {
+        return filterSearch;
+      });
+      var results=document.querySelector(".instant-results");
+      if(event.target.value==="")
+      {
+      results.style.display="none";
+      }
+      else
+      results.style.display="block";
+
+
+
+  }
   return (
     <>
       
@@ -27,20 +60,54 @@ const Navbar = () => {
               </div>
         </div> 
         <div class="col-lg-5 col-md-12 col-12">
-          <form action="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="">
+          <form action="" class="form-search" >
             <div class="input-group">
-            <input type="search" class="form-control" style={{width:"55%"}} placeholder="Search"/>
-              <select class="form-select">
-                <option value="">All type</option>
-                <option value="codex">Special</option>
-                <option value="comments">Only best</option>
-                <option value="content">Latest</option>
+            <input type="search" class={"form-control "+classes[0]} style={{width:"55%"}} placeholder="Search" onChange={handleSearch}/>
+              <select class="form-select" id={"select-"+classes[0]} style={{width:"max-content"}}>
+                {
+                  options.map(el=>{
+
+                   return <option value={el}>{el}</option>
+                  })
+               }
               </select>
               <button class="btn btn-primary">
                 <i class="fa fa-search"></i> 
               </button>
             </div>
           </form>
+          <div class="instant-results">
+                <ul class="list-unstyled result-bucket">
+                  {
+filteredSearch.map(el=>{
+  var selectby=document.getElementById("select-"+classes[0]).value;
+
+  if(selectby==="Users")return <li class="result-entry" data-suggestion="Target 1" data-position="1" data-type="type" data-analytics-type="merchant">
+  <a href=" " class="result-link">
+    {el.user}
+  </a>
+  <p>{el.title}</p>
+</li>
+  else if(selectby==="Competitions")return <li class="result-entry" data-suggestion="Target 1" data-position="1" data-type="type" data-analytics-type="merchant">
+  <a href=" " class="result-link">
+    {el.title}
+  </a>
+</li>
+  else if(selectby==="Organisations")
+  return <li class="result-entry" data-suggestion="Target 1" data-position="1" data-type="type" data-analytics-type="merchant">
+  <a href=" " class="result-link">
+    {el.orgName}
+
+  </a>
+  <p>{el.title}</p>
+</li>
+ 
+                  }
+)
+                }
+
+                </ul>
+            </div>
         </div> 
         
       </div> 
