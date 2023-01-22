@@ -56,14 +56,14 @@ const MouseOut=(e)=>{
         </div>
         <div class="order-lg-last col-lg-5 col-sm-8 col-8">
           <div class="float-end">
-            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-light ms-5"> 
+            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-light"> 
                 <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">My Profile  </span> 
             </a>
-            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-light ms-1"> 
+            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-light"> 
               <i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Bookmarks</span>   
             </a>
 
-            <a href="/team" class="btn btn-light ms-5" style={{backgroundColor: " #0d85fd  ",border:'1px', color:'white'}} > 
+            <a href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/page-items-list.html#" class="btn btn-dark ms-4" style={{backgroundColor: " #0d85fd  ",border:'1px'}} > 
               <i class="fa fa-trophy" style={{color: '#FFD700'}}></i>  <span class=" ms-1 d-none d-sm-inline-block">Post Competions</span>   
             </a>
 

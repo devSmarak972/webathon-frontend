@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Filterbar from "../components/dashboard/Filterbar";
 import ItemContainer from "../components/dashboard/ItemContainer";
 import Navbar from "../components/Navbar";
-import axios from 'axios';
+
 
 const Dashboard = () => {
   useEffect(() => {
