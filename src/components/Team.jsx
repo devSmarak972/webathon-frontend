@@ -238,7 +238,7 @@ var status="Live";
                     </div>
                     <div className="form-outline mb-4">
                         <label className="form-label" for="form6Example6">Maximum Number of Team Members</label>
-                        <input type="email" id="form6Example6" className="form-control" placeholder="Website URL"  onChange={handleteamsize}/>
+                        <input type="text" id="form6Example6" className="form-control" placeholder="Website URL"  onChange={handleteamsize}/>
                         {/* <label className="form-label" for="form6Example5">Email</label> */}
                     </div>
 

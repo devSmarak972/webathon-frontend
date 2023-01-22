@@ -1,7 +1,16 @@
 import React from "react";
-
+import axios from "axios";
 const ItemContainer = ({complist}) => {
- 
+ const handleapply=async (event)=>{
+  var uid=JSON.parse(localStorage.getItem("data"))._id;
+  console.log(uid,localStorage.getItem("data"));
+  var compid=event.target.id;
+  const { data } = await axios.post('http://localhost:3422/api/comp/apply', {
+    uid:uid,
+    compid:compid,
+  });
+  console.log(data);
+ }
   return (
     <>
       <link
@@ -73,7 +82,7 @@ const ItemContainer = ({complist}) => {
                     </p>
                     <br />
                     <div className="mb-3">
-                      <a href=" " className="btn btn-primary">
+                      <a href=" " className="btn btn-primary" id={el._id} onClick={handleapply}>
                         {" "}
                         Apply{" "}
                       </a>
