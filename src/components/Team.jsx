@@ -136,7 +136,8 @@ return list;
     setFee(event.target.value);
     }
     const handleteamsize=(event)=>{
-    setTeamsize(parseInt(event.target.id.substring(5)));
+        console.log(event.target.value);
+    setTeamsize(parseInt(event.target.value));
     }
     const handleurl=(event)=>{
     setUrl(event.target.value);
@@ -156,6 +157,7 @@ console.log(userdata);
 var uid=userdata._id;
 
 var status="Live";
+console.log(teamsize,"teamsize");
         //   const { email, username, password } = values;
           const { data } = await axios.post('http://localhost:3422/api/comp/addcomp', {
             img,

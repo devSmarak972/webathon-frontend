@@ -214,7 +214,7 @@ const Filterbar = ({ filterHandler }) => {
               data-bs-target="#collapse_aside3"
             >
               <i className="icon-control fa fa-chevron-down"></i>
-              Team Size
+              Domain
             </a>
           </header>
           <div className="collapse show" id="collapse_aside3">

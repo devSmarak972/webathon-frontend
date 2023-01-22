@@ -22,54 +22,56 @@ const Dashboard = () => {
     })
   }, [])
   
-  var complist = [
-    {
-      status: "Live",
-      domain: "Finance",
-      category: "Case Study",
-      title: "MindFest Cura 22",
-      applied: "46",
-      timeleft: "17",
-      regDeadline: "23/01/2023",
-      incentive: "₹ 20000",
-      teamsize: 4,
-      orgName:"Indian Institute of Technology Kharagpur",
-      user:"Bhavesh Mukheja",
+  // var complist = [
+  //   {
+  //     status: "Live",
+  //     domain: "Finance",
+  //     category: "Case Study",
+  //     title: "MindFest Cura 22",
+  //     applied: "46",
+  //     timeleft: "17",
+  //     regDeadline: "23/01/2023",
+  //     incentive: "₹ 20000",
+  //     teamsize: 4,
+  //     orgName:"Indian Institute of Technology Kharagpur",
+  //     user:"Bhavesh Mukheja",
 
-      desc: "Short description about the product goes here, for ex it features. Lorem ipsum dolor sit amet with hapti you enter into any new area of science, you almost lorem ipsum is great text consectetur adipisicing",
-    },
-    {
-      status: "Closed",
-      domain: "Finance",
-      category: "Case Study",
-      title: "MindFest Cura 23",
-      applied: "46",
-      timeleft: "17",
-      regDeadline: "30/01/2023",
-      incentive: "20000",
-      teamsize: 5,
-      orgName:"Indian Institute of Technology Kharagpur",
-      user:"Smarak Kanjilal",
+  //     desc: "Short description about the product goes here, for ex it features. Lorem ipsum dolor sit amet with hapti you enter into any new area of science, you almost lorem ipsum is great text consectetur adipisicing",
+  //   },
+  //   {
+  //     status: "Closed",
+  //     domain: "Finance",
+  //     category: "Case Study",
+  //     title: "MindFest Cura 23",
+  //     applied: "46",
+  //     timeleft: "17",
+  //     regDeadline: "30/01/2023",
+  //     incentive: "20000",
+  //     teamsize: 5,
+  //     orgName:"Indian Institute of Technology Kharagpur",
+  //     user:"Smarak Kanjilal",
 
-      desc: "Short description about the product goes here, for ex it features. Lorem ipsum dolor sit amet with hapti you enter into any new area of science, you almost lorem ipsum is great text consectetur adipisicing",
-    },
-    {
-      status: "Live",
-      domain: "Finance",
-      category: "Data Analytics",
-      title: "Kharagpur Data Science Hackathon",
-      applied: "46",
-      timeleft: "17",
-      incentive: "20000",
-      teamsize: 4,
-      regDeadline: "30/01/2023",
-      orgName:"Indian Institute of Technology Kharagpur",
-      user:"Smarak Kanjilal",
+  //     desc: "Short description about the product goes here, for ex it features. Lorem ipsum dolor sit amet with hapti you enter into any new area of science, you almost lorem ipsum is great text consectetur adipisicing",
+  //   },
+  //   {
+  //     status: "Live",
+  //     domain: "Finance",
+  //     category: "Data Analytics",
+  //     title: "Kharagpur Data Science Hackathon",
+  //     applied: "46",
+  //     timeleft: "17",
+  //     incentive: "20000",
+  //     teamsize: 4,
+  //     regDeadline: "30/01/2023",
+  //     orgName:"Indian Institute of Technology Kharagpur",
+  //     user:"Smarak Kanjilal",
 
-      desc: "Short description about the product goes here, for ex it features. Lorem ipsum dolor sit amet with hapti you enter into any new area of science, you almost lorem ipsum is great text consectetur adipisicing",
-    },
-  ];
-var orglist=new Set(complist.map(el=>{
+  //     desc: "Short description about the product goes here, for ex it features. Lorem ipsum dolor sit amet with hapti you enter into any new area of science, you almost lorem ipsum is great text consectetur adipisicing",
+  //   },
+  // ];
+  const [Data, setData] = useState([]);
+  const [filteredData, setfilteredData] = useState([...Data]);
+var orglist=new Set(Data.map(el=>{
   return el.orgName;
 
 }));
@@ -85,13 +87,12 @@ var orglist=new Set(complist.map(el=>{
       if (category === filter[i]) return true;
     return false;
   };
-  const [Data, setData] = useState(complist);
+  
   const filterData = (filters) => {
-    // console.log(filters,"filters");
-    var filteredData = complist.filter((el) => {
+    console.log(filters,Data,"filters");
+    var filteredData = Data.filter((el) => {
 
       // status domain category teamsize
-      // console.log((filters.domain==="All" || el.domain === filters.domain),(filters.status==="All"||el.status === filters.status),checkTeamSize(filters.teamsize, el.teamsize),checkCategory(filters.category, el.category))
       if (
         (filters.domain==="All" || el.domain === filters.domain) &&
         (filters.status==="All"||el.status === filters.status) &&
@@ -101,14 +102,14 @@ var orglist=new Set(complist.map(el=>{
         return true;
       else return false;
     });
-    setData((st) => {
+    setfilteredData((st) => {
       return [...filteredData];
     });
   };
   var options=["Users","Competitions","Organisations"]
   return (
     <>
-    <Navbar classes={["complist"]} options={options} data={complist}></Navbar>
+    <Navbar classes={["complist"]} options={options} data={Data}></Navbar>
       <section className="bg-primary py-5">
         <div className="container">
           <h2 className="text-white">Competitions</h2>
@@ -118,7 +119,7 @@ var orglist=new Set(complist.map(el=>{
         <div className="container">
           <div className="row">
             <Filterbar filterHandler={filterData}></Filterbar>
-            <ItemContainer complist={Data}></ItemContainer>
+            <ItemContainer complist={filteredData}></ItemContainer>
           </div>
         </div>
       </section>
