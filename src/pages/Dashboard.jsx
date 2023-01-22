@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Filterbar from "../components/dashboard/Filterbar";
 import ItemContainer from "../components/dashboard/ItemContainer";
 import Navbar from "../components/Navbar";
+import axios from 'axios';
 
 const Dashboard = () => {
+  useEffect(() => {
+   
+    axios.get('/api/auth/fetchallcomp', {
+      
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNjYzcwNDM4YzRjMzkwMWNlYTg5MjQwIn0sImlhdCI6MTY3NDM3MTE1OH0.7mVT738wzeXGqSmR6x4xCGrfy4JErT8g4yiBK_B8p8E'
+      },
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+  }, [])
+  
   var complist = [
     {
       status: "Live",
